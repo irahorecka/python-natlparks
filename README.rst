@@ -14,6 +14,13 @@ API documentation
 -----------------
 Thorough National Park Service API documentation can be found `here <https://www.nps.gov/subjects/developer/api-documentation.htm#/>`__.
 
+Installation
+------------
+
+::
+
+    pip install python-natlparks
+
 API examples
 ------------
 Let's get started by instantiating a NatlParks object with your API key.
