@@ -10,7 +10,7 @@ pylint: ## pylint every python file
 	find . -type f -name "*.py" -a | xargs pylint;
 
 unittest: ## Verbosely test ./tests/test_natlparks.py
-	python tests/test_natlparks.py -v;
+	python tests/test_natlparks.py;
 	make clean;
 
 pre-commit: ## Install and autoupdate pre-commit
