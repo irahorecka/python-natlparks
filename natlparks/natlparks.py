@@ -43,9 +43,7 @@ def api_method(method):
             extension = "&".join(f"{key}={value}" for key, value in kwargs.items() if value)
             self.url = f"{self.url}?{extension}"
 
-        api_response = self.get_json()
-
-        return api_response
+        return self.get_json()
 
     return wrapper
 

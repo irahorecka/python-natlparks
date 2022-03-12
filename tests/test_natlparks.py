@@ -1,11 +1,12 @@
 import os
-from pathlib import Path
 import sys
 import unittest
 
-os.chdir(Path(__file__).parent)
-os.chdir("../natlparks")
-sys.path.append(os.getcwd())  # required for relative file fetching - run in 'test' directory
+from argparse import ArgumentParser, RawTextHelpFormatter
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(str(BASE_DIR))  # required for relative file fetching - run in 'test' directory
 from natlparks import NatlParks
 
 
@@ -15,8 +16,7 @@ class TestNatlParks(unittest.TestCase):
     q = "yosemite"
 
     def setUp(self):
-        API_Token = os.environ.get("NATL_PARK_API")
-        self.natl_parks = NatlParks(API_Token)
+        self.natl_parks = NatlParks(api_token)
 
     def test_activities(self):
         activities = self.natl_parks.activities()
@@ -99,5 +99,29 @@ class TestNatlParks(unittest.TestCase):
         self.assertIsInstance(visitor_centers, dict)
 
 
+def parse_args(*args):
+    parser = ArgumentParser(
+        description="Unit Test for python-natlparks", formatter_class=RawTextHelpFormatter
+    )
+    parser.add_argument(
+        "--token",
+        type=str,
+        help="National Park Services developer API token (https://www.nps.gov/subjects/developer/get-started.htm)",
+    )
+    parser.add_argument("unittest_args", nargs="*")
+
+    return parser.parse_args(args)
+
+
 if __name__ == "__main__":
+    namespace = parse_args(*sys.argv[1:])
+    sys.argv[1:] = namespace.unittest_args
+    api_token = namespace.token
+    # Try fetching API key stored as an environment variable.
+    if not api_token:
+        try:
+            api_token = os.environ["NATL_PARK"]
+        except KeyError as e:
+            raise RuntimeError("No API key provided. Aborting.") from e
+
     unittest.main()
