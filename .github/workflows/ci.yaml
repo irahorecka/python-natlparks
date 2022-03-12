@@ -25,4 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r .github/requirements-ci.txt
       - name: Run unit tests
-        run: python ./tests/test_natlparks.py --token=${{ secrets.NATL_PARK }}
+        env:
+            NATL_PARK: ${{ secrets.NATL_PARK }}
+        run: python ./tests/test_natlparks.py

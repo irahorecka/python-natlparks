@@ -114,10 +114,11 @@ def parse_args(*args):
 
 
 if __name__ == "__main__":
+    # Pass API token as a CLI argument using `--token=YOUR_API_KEY`.
     namespace = parse_args(*sys.argv[1:])
     sys.argv[1:] = namespace.unittest_args
     api_token = namespace.token
-    # Try fetching API key stored as an environment variable.
+    # If no CLI argument passed, try fetching API key stored as an environment variable.
     if not api_token:
         try:
             api_token = os.environ["NATL_PARK"]
