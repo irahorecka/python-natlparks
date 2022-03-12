@@ -1,9 +1,14 @@
 python-natlparks
 ================
 
-A simple API wrapper for `US National Park Services <https://www.nps.gov/index.htm>`__.
+|PyPI version fury.io| |PyPI pyversions|
 
-License: `MIT <https://en.wikipedia.org/wiki/MIT_License>`__.
+.. |PyPI version fury.io| image:: https://badge.fury.io/py/python-natlparks.svg
+    :target: https://pypi.python.org/pypi/python-natlparks
+.. |PyPI pyversions| image:: https://img.shields.io/pypi/pyversions/python-natlparks.svg
+    :target: https://pypi.python.org/pypi/python-natlparks/
+
+A simple API wrapper for `US National Park Services <https://www.nps.gov/index.htm>`__.
 
 Getting an API key
 ------------------
@@ -70,7 +75,7 @@ Now, you can browse various API endpoints.
 .. code:: python
 
     parks.amenities.parksplaces()  # default parameters: limit=50, start=1, q="", id="", parkCode=""
-    parks.amenities.parksplaces(limit=10, start=1) 
+    parks.amenities.parksplaces(limit=10, start=1)
 
 
 **Amenities parks visitor centers**: Returns amenities parks visitor centers information.
@@ -78,7 +83,7 @@ Now, you can browse various API endpoints.
 .. code:: python
 
     parks.amenities.parksvisitorcenters()  # default parameters: limit=50, start=1, q="", id="", parkCode=""
-    parks.amenities.parksvisitorcenters(limit=10, start=1) 
+    parks.amenities.parksvisitorcenters(limit=10, start=1)
 
 
 **Articles**: Articles are shared content assets that are tagged so they can appear in a variety of places on NPS.gov. Data includes a title, image, short description of the content, and link to more information about the asset.
@@ -86,7 +91,7 @@ Now, you can browse various API endpoints.
 .. code:: python
 
     parks.articles()  # default parameters: limit=50, start=1, q="", parkCode="", stateCode=""
-    parks.articles(limit=10, start=1) 
+    parks.articles(limit=10, start=1)
 
 
 **Campgrounds**: Campground data includes location, contact, operating hours, site amenities, fee, and accessibility information for campgrounds in national parks At least one representative photo of each campground is available Some parks have multiple campgrounds of a variety of types (eg, developed or primitive); others have none.
@@ -94,7 +99,7 @@ Now, you can browse various API endpoints.
 .. code:: python
 
     parks.campgrounds()  # default parameters: limit=50, start=1, q="", parkCode="", stateCode=""
-    parks.campgrounds(limit=10, start=1) 
+    parks.campgrounds(limit=10, start=1)
 
 
 **Events**: Event data includes information about the date, time, fee, and description of events taking place in national parks.
@@ -102,7 +107,7 @@ Now, you can browse various API endpoints.
 .. code:: python
 
     parks.events()  # default parameters: limit=50, start=1, pageSize=10, pageNumber=1, expandRecurring=False, q="", id="", parkCode="", dateStart="", dateEnd=""
-    parks.events(limit=10, start=1) 
+    parks.events(limit=10, start=1)
 
 
 **Lesson plans**: Lesson plans are standards-based resources about national parks for teacher to use in their classrooms. Lesson plan data includes objectives, grade level, subject, duration, and standards information.
@@ -168,7 +173,18 @@ Now, you can browse various API endpoints.
     parks.visitor_centers()  # default parameters: limit=50, start=1, q="", parkCode="", stateCode=""
     parks.visitor_centers(limit=10, start=1)
 
+Contribute
+----------
+
+- `Issue Tracker <https://github.com/irahorecka/python-natlparks/issues>`__
+- `Source Code <https://github.com/irahorecka/python-natlparks/tree/master/python-natlparks>`__
 
 Support
 -------
-If you find any bug or you want to propose a new feature, please use the `issues tracker <https://github.com/irahorecka/python-natlparks/issues>`__. I'll be happy to help!
+
+If you are having issues or would like to propose a new feature, please use the `issues tracker <https://github.com/irahorecka/python-natlparks/issues>`__.
+
+License
+-------
+
+The project is licensed under the MIT license.
