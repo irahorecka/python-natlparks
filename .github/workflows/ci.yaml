@@ -26,5 +26,5 @@ jobs:
           pip install -r .github/requirements-ci.txt
       - name: Run unit tests
         env:
-            NATL_PARK: ${{ secrets.NATL_PARK }}
+            NATL_PARK: ${{ secrets.API_TOKEN }}
         run: python ./tests/test_natlparks.py
