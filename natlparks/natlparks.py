@@ -1,6 +1,9 @@
 from functools import wraps
 import inspect
+
 import requests
+
+from natlparks.exceptions import HTTPError
 
 
 class BaseAPI(object):
@@ -16,7 +19,7 @@ class BaseAPI(object):
         try:
             response = requests.get(self.url, params=self.api_param)
         except requests.exceptions.ConnectionError as e:
-            raise RuntimeError(e)
+            raise HTTPError(e) from e
 
         return response.json()
 
@@ -37,9 +40,7 @@ def api_method(method):
             self.url = f"{self.base_url}/{self.api}"
 
         if kwargs:
-            extension = "&".join(
-                f"{key}={value}" for key, value in kwargs.items() if value
-            )
+            extension = "&".join(f"{key}={value}" for key, value in kwargs.items() if value)
             self.url = f"{self.url}?{extension}"
 
         api_response = self.get_json()
@@ -50,8 +51,8 @@ def api_method(method):
 
 
 class Activities(BaseAPI):
-    """API for national park activities. Activities are the 
-    primary categories of activities in which to participate 
+    """API for national park activities. Activities are the
+    primary categories of activities in which to participate
     in national parks."""
 
     api = "activities"
@@ -67,10 +68,10 @@ class Activities(BaseAPI):
 
 
 class Alerts(BaseAPI):
-    """API for national park alerts. Alerts communicate information 
-    about hazardous, potentially hazardous, or changing conditions 
-    that may affect a visit to a national park. Alert data includes 
-    the type of alert, title, description, and optional link to 
+    """API for national park alerts. Alerts communicate information
+    about hazardous, potentially hazardous, or changing conditions
+    that may affect a visit to a national park. Alert data includes
+    the type of alert, title, description, and optional link to
     additional information."""
 
     api = "alerts"
@@ -101,9 +102,9 @@ class Amenities(BaseAPI):
 
 
 class Articles(BaseAPI):
-    """API for national park articles. Articles are shared content 
-    assets that are tagged so they can appear in a variety of places 
-    on NPS.gov. Data includes a title, image, short description of 
+    """API for national park articles. Articles are shared content
+    assets that are tagged so they can appear in a variety of places
+    on NPS.gov. Data includes a title, image, short description of
     the content, and link to more information about the asset."""
 
     api = "articles"
@@ -114,11 +115,11 @@ class Articles(BaseAPI):
 
 
 class Campgrounds(BaseAPI):
-    """API for national park campgrounds. Campground data includes 
-    location, contact, operating hours, site amenities, fee, and 
-    accessibility information for campgrounds in national parks At 
-    least one representative photo of each campground is available 
-    Some parks have multiple campgrounds of a variety of types 
+    """API for national park campgrounds. Campground data includes
+    location, contact, operating hours, site amenities, fee, and
+    accessibility information for campgrounds in national parks At
+    least one representative photo of each campground is available
+    Some parks have multiple campgrounds of a variety of types
     (eg, developed or primitive); others have none."""
 
     api = "campgrounds"
@@ -129,8 +130,8 @@ class Campgrounds(BaseAPI):
 
 
 class Events(BaseAPI):
-    """API for national park events. Event data includes information 
-    about the date, time, fee, and description of events taking place 
+    """API for national park events. Event data includes information
+    about the date, time, fee, and description of events taking place
     in national parks."""
 
     api = "events"
@@ -153,9 +154,9 @@ class Events(BaseAPI):
 
 
 class LessonPlans(BaseAPI):
-    """API for national park lesson plans. Lesson plans are standards-based 
-    resources about national parks for teacher to use in their classrooms 
-    Lesson plan data includes objectives, grade level, subject, duration, 
+    """API for national park lesson plans. Lesson plans are standards-based
+    resources about national parks for teacher to use in their classrooms
+    Lesson plan data includes objectives, grade level, subject, duration,
     and standards information."""
 
     api = "lessonplans"
@@ -166,8 +167,8 @@ class LessonPlans(BaseAPI):
 
 
 class NewsReleases(BaseAPI):
-    """API for national park news releases. News release data includes a 
-    title, abstract, and link to national park news releases, as well as an 
+    """API for national park news releases. News release data includes a
+    title, abstract, and link to national park news releases, as well as an
     optional image."""
 
     api = "newsreleases"
@@ -178,8 +179,8 @@ class NewsReleases(BaseAPI):
 
 
 class Parks(BaseAPI):
-    """API for national parks. Park basics data includes location, contact, 
-    operating hours, and entrance fee/pass information for each national 
+    """API for national parks. Park basics data includes location, contact,
+    operating hours, and entrance fee/pass information for each national
     park At least five photos of each park are also available."""
 
     api = "parks"
@@ -190,9 +191,9 @@ class Parks(BaseAPI):
 
 
 class People(BaseAPI):
-    """API for national park people. People are shared content assets that 
-    are tagged so they can appear in a variety of places on NPS.gov. Data 
-    includes a title, image, short description of the content, and link to 
+    """API for national park people. People are shared content assets that
+    are tagged so they can appear in a variety of places on NPS.gov. Data
+    includes a title, image, short description of the content, and link to
     more information about the asset."""
 
     api = "people"
@@ -203,9 +204,9 @@ class People(BaseAPI):
 
 
 class Places(BaseAPI):
-    """API for national park places. Places are shared content assets that 
-    are tagged so they can appear in a variety of places on NPS.gov. Data 
-    includes a title, image, short description of the content, and link to 
+    """API for national park places. Places are shared content assets that
+    are tagged so they can appear in a variety of places on NPS.gov. Data
+    includes a title, image, short description of the content, and link to
     more information about the asset."""
 
     api = "places"
@@ -216,7 +217,7 @@ class Places(BaseAPI):
 
 
 class Topics(BaseAPI):
-    """API for national park topics. Topics are the primary categories of 
+    """API for national park topics. Topics are the primary categories of
     topics interpreted by national parks."""
 
     api = "topics"
@@ -232,10 +233,10 @@ class Topics(BaseAPI):
 
 
 class VisitorCenters(BaseAPI):
-    """API for national park visitor centers. Visitor center data includes 
-    location, contact, and operating hours information for visitor centers 
-    and other visitor contact facilities in national parks At least one 
-    visitor center is listed for each park; some parks with multiple visitor 
+    """API for national park visitor centers. Visitor center data includes
+    location, contact, and operating hours information for visitor centers
+    and other visitor contact facilities in national parks At least one
+    visitor center is listed for each park; some parks with multiple visitor
     centers may include information about more than one."""
 
     api = "visitorcenters"
