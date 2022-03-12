@@ -15,7 +15,7 @@ setuptools.setup(
     version="v0.1.2",
     long_description=README,
     url="https://github.com/irahorecka/python-natlparks",
-    packages=["actransit"],
+    packages=["natlparks"],
     python_requires=">=3.5",
     install_requires=["requests"],
     classifiers=[
