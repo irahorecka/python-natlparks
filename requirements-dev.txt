@@ -1,0 +1,10 @@
+requests
+
+absolufy-imports
+black
+flake8
+pre-commit
+pylint
+setuptools
+twine
+wheel
