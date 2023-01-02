@@ -1,7 +1,7 @@
 python-natlparks
 ================
 
-|PyPI version fury.io| |PyPI pyversions| |CI|
+|PyPI version fury.io| |PyPI pyversions|
 
 .. |PyPI version fury.io| image:: https://badge.fury.io/py/python-natlparks.svg
     :target: https://pypi.python.org/pypi/python-natlparks
