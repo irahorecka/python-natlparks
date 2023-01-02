@@ -7,8 +7,6 @@ python-natlparks
     :target: https://pypi.python.org/pypi/python-natlparks
 .. |PyPI pyversions| image:: https://img.shields.io/pypi/pyversions/python-natlparks.svg
     :target: https://pypi.python.org/pypi/python-natlparks/
-.. |CI| image:: https://github.com/irahorecka/python-natlparks/workflows/continuous-integration/badge.svg?branch=master
-    :target: https://github.com/irahorecka/python-natlparks/actions
 
 A simple API wrapper for `US National Park Services <https://www.nps.gov/index.htm>`__.
 
