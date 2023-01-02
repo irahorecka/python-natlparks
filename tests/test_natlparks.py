@@ -6,7 +6,7 @@ from argparse import ArgumentParser, RawTextHelpFormatter
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.append(str(BASE_DIR))  # required for relative file fetching - run in 'test' directory
+sys.path.append(str(BASE_DIR))  # required for relative file fetching - run in 'tests/' directory
 from natlparks import NatlParks
 
 

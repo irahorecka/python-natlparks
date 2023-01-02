@@ -3,7 +3,9 @@ import inspect
 
 import requests
 
-from natlparks.exceptions import HTTPError
+
+class HTTPError(Exception):
+    """Invalid HTTP response or loss of request connection."""
 
 
 class BaseAPI(object):
