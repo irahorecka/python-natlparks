@@ -1,12 +1,14 @@
 python-natlparks
 ================
 
-|PyPI version fury.io| |PyPI pyversions|
+|PyPI version fury.io| |PyPI pyversions| |CI|
 
 .. |PyPI version fury.io| image:: https://badge.fury.io/py/python-natlparks.svg
     :target: https://pypi.python.org/pypi/python-natlparks
 .. |PyPI pyversions| image:: https://img.shields.io/pypi/pyversions/python-natlparks.svg
     :target: https://pypi.python.org/pypi/python-natlparks/
+.. |CI| image:: https://github.com/irahorecka/python-natlparks/workflows/continuous-integration/badge.svg?branch=master
+    :target: https://github.com/irahorecka/python-natlparks/actions
 
 A simple API wrapper for `US National Park Services <https://www.nps.gov/index.htm>`__.
 
@@ -176,7 +178,7 @@ Now, you can browse various API endpoints.
 Contribute
 ----------
 
-- `Issue Tracker <https://github.com/irahorecka/python-natlparks/issues>`__
+- `Issues Tracker <https://github.com/irahorecka/python-natlparks/issues>`__
 - `Source Code <https://github.com/irahorecka/python-natlparks/tree/master/python-natlparks>`__
 
 Support
