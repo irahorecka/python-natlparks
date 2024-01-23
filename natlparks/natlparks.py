@@ -29,7 +29,7 @@ class BaseAPI(object):
 def api_method(method):
     """Decorator for generating appropriate url endpoints."""
     default_kwargs = dict(
-        zip(inspect.getargspec(method).args[1:], inspect.getargspec(method).defaults)
+        zip(inspect.getfullargspec(method).args[1:], inspect.getfullargspec(method).defaults)
     )  # get default kwargs
 
     @wraps(method)
