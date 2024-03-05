@@ -6,10 +6,10 @@
 
 <br>
 
-[![PyPI version
-fury.io](https://badge.fury.io/py/python-natlparks.svg)](https://pypi.python.org/pypi/python-natlparks)
-[![PyPI
-pyversions](https://img.shields.io/pypi/pyversions/python-natlparks.svg)](https://pypi.python.org/pypi/python-natlparks/)
+[![pypiv](https://img.shields.io/pypi/v/python-natlparks.svg)](https://pypi.python.org/pypi/python-natlparks)
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![continuous-integration](https://github.com/irahorecka/python-natlparks/workflows/continuous-integration/badge.svg)](https://github.com/irahorecka/python-natlparks/actions)
+[![Licence](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/irahorecka/python-natlparks/main/LICENSE)
 
 A simple API wrapper for [US National Park
 Services](https://www.nps.gov/index.htm).
