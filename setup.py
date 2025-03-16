@@ -12,7 +12,7 @@ setuptools.setup(
     name="python-natlparks",
     license="MIT",
     description="Simple API wrapper for US National Park Services",
-    version="v0.1.5",
+    version="v0.1.6",
     long_description=README,
     url="https://github.com/irahorecka/python-natlparks",
     packages=["natlparks"],
