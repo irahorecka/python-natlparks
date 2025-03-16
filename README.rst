@@ -1,6 +1,10 @@
 python-natlparks
 ================
 
+.. image:: https://www.nps.gov/articles/images/NPS-Transparent-Logo.png
+   :align: center
+   :width: 128px
+
 |PyPI version fury.io| |PyPI pyversions|
 
 .. |PyPI version fury.io| image:: https://badge.fury.io/py/python-natlparks.svg
