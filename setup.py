@@ -14,6 +14,7 @@ setuptools.setup(
     description="Simple API wrapper for US National Park Services",
     version="v0.1.6",
     long_description=README,
+    long_description_content_type="text/markdown",
     url="https://github.com/irahorecka/python-natlparks",
     packages=["natlparks"],
     python_requires=">=3.8",
